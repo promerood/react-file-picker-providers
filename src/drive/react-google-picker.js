@@ -8,44 +8,16 @@ let scriptLoadingStarted = false;
 
 export default class GoogleChooser extends React.Component {
 
-    static propTypes = {
-        children: PropTypes.node,
-        clientId: PropTypes.string.isRequired,
-        developerKey: PropTypes.string,
-        scope: PropTypes.array,
-        viewId: PropTypes.string,
-        authImmediate: PropTypes.bool,
-        origin: PropTypes.string,
-        onChange: PropTypes.func,
-        onAuthenticate: PropTypes.func,
-        onAuthFailed: PropTypes.func,
-        createPicker: PropTypes.func,
-        multiselect: PropTypes.bool,
-        navHidden: PropTypes.bool,
-        disabled: PropTypes.bool
-  };
-
-  static defaultProps = {
-    onChange: () => {},
-    onAuthenticate: () => {},
-    onAuthFailed: () => {},
-    scope:['https://www.googleapis.com/auth/drive.readonly'],
-    viewId: 'DOCS',
-    authImmediate: false,
-    multiselect: false,
-    navHidden: false,
-    disabled: false
-  };
-
   constructor(props) {
     super(props);
 
     this.onApiLoad = this.onApiLoad.bind(this);
     this.onChoose = this.onChoose.bind(this);
+    this.onSuccess = this.onSuccess.bind(this);
   }
 
   componentDidMount() {
-    if(this.isGoogleReady()) {
+    if (this.isGoogleReady()) {
       // google api is already exists
       // init immediately
       this.onApiLoad();
@@ -56,6 +28,16 @@ export default class GoogleChooser extends React.Component {
     } else {
       // is loading
     }
+  }
+
+  onSuccess(files) {
+    const { success } = this.props;
+    console.log('onSuccess', files);
+
+    if (success) {
+      success(files);
+    }
+
   }
 
   isGoogleReady() {
@@ -77,10 +59,10 @@ export default class GoogleChooser extends React.Component {
 
   doAuth(callback) {
     window.gapi.auth.authorize({
-        client_id: this.props.clientId,
-        scope: this.props.scope,
-        immediate: this.props.authImmediate
-      },
+      client_id: this.props.clientId,
+      scope: this.props.scope,
+      immediate: this.props.authImmediate
+    },
       callback
     );
   }
@@ -110,7 +92,7 @@ export default class GoogleChooser extends React.Component {
 
     this.props.onAuthenticate(oauthToken);
 
-    if(this.props.createPicker){
+    if (this.props.createPicker) {
       return this.props.createPicker(google, oauthToken)
     }
 
@@ -129,10 +111,10 @@ export default class GoogleChooser extends React.Component {
     }
 
     const picker = new window.google.picker.PickerBuilder()
-                             .addView(view)
-                             .setOAuthToken(oauthToken)
-                             .setDeveloperKey(this.props.developerKey)
-                             .setCallback(this.props.onChange);
+      .addView(view)
+      .setOAuthToken(oauthToken)
+      .setDeveloperKey(this.props.developerKey)
+      .setCallback(this.onSuccess);
 
     if (this.props.origin) {
       picker.setOrigin(this.props.origin);
@@ -147,7 +129,7 @@ export default class GoogleChooser extends React.Component {
     }
 
     picker.build()
-          .setVisible(true);
+      .setVisible(true);
   }
 
   render() {
@@ -162,3 +144,34 @@ export default class GoogleChooser extends React.Component {
     );
   }
 }
+
+
+GoogleChooser.propTypes = {
+  children: PropTypes.node,
+  clientId: PropTypes.string.isRequired,
+  developerKey: PropTypes.string,
+  scope: PropTypes.array,
+  viewId: PropTypes.string,
+  authImmediate: PropTypes.bool,
+  origin: PropTypes.string,
+  success: PropTypes.func,
+  onAuthenticate: PropTypes.func,
+  onAuthFailed: PropTypes.func,
+  createPicker: PropTypes.func,
+  multiselect: PropTypes.bool,
+  navHidden: PropTypes.bool,
+  disabled: PropTypes.bool
+};
+
+
+GoogleChooser.defaultProps = {
+  success: () => { },
+  onAuthenticate: () => { },
+  onAuthFailed: () => { },
+  scope: ['https://www.googleapis.com/auth/drive.readonly'],
+  viewId: 'DOCS',
+  authImmediate: false,
+  multiselect: false,
+  navHidden: false,
+  disabled: false
+};

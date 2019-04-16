@@ -1,4 +1,4 @@
-import GooglePicker from './drive/react-google-picker';
+import GoogleChooser from './drive/react-google-picker';
 import DropboxChooser from './dropbox/react-dropbox-chooser'
 
-export { GooglePicker, DropboxChooser };
+export { GoogleChooser, DropboxChooser };
