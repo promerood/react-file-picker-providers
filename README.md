@@ -10,7 +10,10 @@ open http://localhost:3000
 
 ============
 
-Simple react wrapper for [Dropbox Chooser API](https://www.dropbox.com/developers/chooser)
+Simple react wrapper for: 
+- [Dropbox Chooser API](https://www.dropbox.com/developers/chooser)
+- [Google Drive (DOCs)](https://console.developers.google.com)
+- [OneDrive]- In-Progress DEV.
 
 Installation 
 ===
@@ -22,7 +25,7 @@ npm install react-file-picker-providers
 Usage Dropbox
 =====
 ```
-import { DropboxChooser } from 'react-file-picker-providers';
+import { DropboxChooser, EXTENSION_COMMON } from 'react-file-picker-providers';
 
 ...
 ...
@@ -32,7 +35,12 @@ import { DropboxChooser } from 'react-file-picker-providers';
     success={files => console.log('onSucces', files)}
     cancel={() => this.onCancel()}
     multiselect={true}
-    extensions={['PNG', 'JPG', 'PDF', 'DOC']} >
+    extensions={[
+        EXTENSION_COMMON.PDF,
+        EXTENSION_COMMON.DOC,
+        EXTENSION_COMMON.DOCX,
+        EXTENSION_COMMON.XLS
+      ]} >
     <div className="dropbox-button">Click me!</div>        
 </DropboxChooser>
 ```
@@ -40,7 +48,7 @@ import { DropboxChooser } from 'react-file-picker-providers';
 Usage Google Drive
 =====
 ```
-import { GoogleChooser } from 'react-file-picker-providers';
+import { GoogleChooser , EXTENSION_COMMON} from 'react-file-picker-providers';
 
 ...
 ...
@@ -52,7 +60,12 @@ import { GoogleChooser } from 'react-file-picker-providers';
       multiselect={true}
       navHidden={true}
       authImmediate={false}
-      extensions={['PNG', 'JPG', 'PDF', 'DOC']}
+      extensions={[
+        EXTENSION_COMMON.PDF,
+        EXTENSION_COMMON.DOC,
+        EXTENSION_COMMON.DOCX,
+        EXTENSION_COMMON.XLS
+      ]}
     >
       <span>Click me DRIVE!</span>
 
@@ -66,25 +79,25 @@ example code here
 ```
 in progress dev
 
-Allowed extensions
+Allowed extensions:
 =====
 ```
-    PDF
-    DOC
-    DOCX
-    XLS
-    XLSX
-    PPT
-    PPTX
-    JPG
-    JPE
-    JPEG
-    PNG
-    BMP
-    GIF
-    TIFF
-    TIF
-    RTF
+    EXTENSION_COMMON.PDF
+    EXTENSION_COMMON.DOC
+    EXTENSION_COMMON.DOCX
+    EXTENSION_COMMON.XLS
+    EXTENSION_COMMON.XLSX
+    EXTENSION_COMMON.PPT
+    EXTENSION_COMMON.PPTX
+    EXTENSION_COMMON.JPG
+    EXTENSION_COMMON.JPE
+    EXTENSION_COMMON.JPEG
+    EXTENSION_COMMON.PNG
+    EXTENSION_COMMON.BMP
+    EXTENSION_COMMON.GIF
+    EXTENSION_COMMON.TIFF
+    EXTENSION_COMMON.TIF
+    EXTENSION_COMMON.RTF
 ```
 
 Author

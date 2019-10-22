@@ -1,5 +1,10 @@
 import DropboxChooser from "./dropbox/index";
 import GoogleChooser from "./google/index";
-import { PROVIDERS } from "./constants";
+import { PROVIDERS, EXTENSION_COMMON } from "./constants";
 
-export { DropboxChooser, GoogleChooser, PROVIDERS };
+export {
+  DropboxChooser,
+  GoogleChooser,
+  PROVIDERS,
+  EXTENSION_COMMON
+};
