@@ -1,15 +1,12 @@
 {
   "name": "react-file-picker-providers",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
-  "private": true,
+  "private": false,
   "engines": {
     "node": ">=8.0.0"
   },
-  "author": {
-    "name": "Pablo David Romero",
-    "email": "pablo.romeropablo@gmail.com"
-  },
+  "author": "Pablo David Romero <pablo.romeropablo@gmail.com>",
   "files": [
     "build"
   ],
@@ -160,5 +157,14 @@
     "webpack-dev-server": "^3.1.10",
     "webpack-manifest-plugin": "2.0.4",
     "whatwg-fetch": "2.0.3"
-  }
+  },
+  "description": "React File Providers chooser - Wrapper ============ Demo  ==== ``` npm install npm start open http://localhost:3000 ```",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/promerood/react-file-picker-providers.git"
+  },
+  "bugs": {
+    "url": "https://github.com/promerood/react-file-picker-providers/issues"
+  },
+  "homepage": "https://github.com/promerood/react-file-picker-providers#readme"
 }
