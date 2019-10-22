@@ -79,7 +79,7 @@ example code here
 ```
 in progress dev
 
-Allowed extensions: import { EXTENSION_COMMON} from 'react-file-picker-providers';
+Allowed extensions:
 =====
 ```
     EXTENSION_COMMON.PDF
