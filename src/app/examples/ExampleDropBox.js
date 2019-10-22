@@ -2,7 +2,7 @@ import React from "react";
 // eslint-disable-next-line import/no-unresolved
 import { DropboxChooser } from "react-file-picker-providers";
 
-const APP_KEY = "6uiphby8spt4xnu";
+const APP_KEY = "c48q8vj83tmks2t";
 
 const ExampleDropBox = () => {
   const ext = ["PDF", "DOC", "DOCX", "XLS"];
