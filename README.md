@@ -59,17 +59,12 @@ import { GoogleChooser } from 'react-file-picker-providers';
     </GoogleChooser>
 ```
 
-Usage Google Photos
-=====
-```
-example code here
-```
-
 Usage Google OneDrive
 =====
 ```
 example code here
 ```
+in progress dev
 
 Allowed extensions
 =====
