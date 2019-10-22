@@ -1,0 +1,5 @@
+export const PROVIDERS = {
+  DROPBOX: "DROPBOX",
+  GDRIVE: "GOOGLE_DRIVE",
+  ONE_DRIVE: "ONE_DRIVE"
+};
