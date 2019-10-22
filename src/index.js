@@ -1,4 +1,7 @@
-import GoogleChooser from './drive/react-google-picker';
-import DropboxChooser from './dropbox/react-dropbox-chooser'
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./app/App";
+import registerServiceWorker from "./registerServiceWorker";
 
-export { GoogleChooser, DropboxChooser };
+ReactDOM.render(<App />, document.getElementById("root"));
+registerServiceWorker();
