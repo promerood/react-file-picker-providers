@@ -6,13 +6,14 @@ module.exports = api => {
       "@babel/preset-env",
       {
         targets: "last 2 versions, ie >= 9",
-        useBuiltIns: "usage"
+        corejs: "3.0.0",
+        useBuiltIns: "entry"
       }
     ],
     "@babel/react"
   ];
 
-  const ignore = [/[\/\\]core-js/, /@babel[\/\\]runtime/];
+  // const ignore = [/@babel[\/\\]runtime/];
 
   const plugins = [
     "@babel/plugin-transform-modules-commonjs",
@@ -36,7 +37,7 @@ module.exports = api => {
 
   return {
     presets,
-    ignore,
+    // ignore,
     plugins
   };
 };
