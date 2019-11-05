@@ -34,20 +34,34 @@ class DropboxChooser extends Component {
     }
   }
 
-  onSuccess = filesSelectedUser => {
+  async onSuccess(filesSelectedUser) {
     const { success } = this.props;
     const resp = [];
 
     // THE MAPPING BETWEEN THE PROVIDER'S
     // RESPONSE AND THE OBJECT OF SUCCESS
+    const promises = [];
     filesSelectedUser.forEach(file => {
+      promises.push(
+        fetch(file.link)
+          .then(res => res.blob()) // Gets the response and returns it as a blob
+          .then(blob => {
+            return blob;
+          })
+      );
+    });
+
+    const proALL = await Promise.all(promises);
+
+    proALL.forEach((file, index) => {
       resp.push(
         new Success(
-          file.id,
-          file.name,
-          file.bytes,
-          file.link,
-          PROVIDERS.DROPBOX
+          filesSelectedUser[index].id,
+          filesSelectedUser[index].name,
+          filesSelectedUser[index].bytes,
+          null,
+          PROVIDERS.DROPBOX,
+          file
         )
       );
     });
@@ -55,7 +69,7 @@ class DropboxChooser extends Component {
     if (success) {
       success(resp);
     }
-  };
+  }
 
   onChoose = () => {
     const { disabled, extensions } = this.props;
