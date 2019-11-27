@@ -25,7 +25,7 @@ const ExampleGoogleChooser = () => {
         EXTENSION_COMMON.PDF,
         EXTENSION_COMMON.DOC,
         EXTENSION_COMMON.DOCX,
-        EXTENSION_COMMON.XLS
+        EXTENSION_COMMON.CSV
       ]}
     >
       <span>Click me DRIVE!</span>
