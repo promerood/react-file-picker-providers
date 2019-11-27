@@ -15,7 +15,8 @@ const EXTENSIONS = {
     GIF: ".gif",
     TIFF: ".tiff",
     TIF: ".tif",
-    RTF: ".rtf"
+    RTF: ".rtf",
+    CSV: ".csv"
   },
   GOOGLE_DRIVE: {
     PDF: "application/pdf",
@@ -35,7 +36,8 @@ const EXTENSIONS = {
     GIF: "image/gif",
     TIFF: "image/tiff",
     TIF: "image/tif",
-    RTF: "image/rtf"
+    RTF: "image/rtf",
+    CSV: "text/csv"
   }
 };
 

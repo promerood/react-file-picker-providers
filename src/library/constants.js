@@ -20,5 +20,6 @@ export const EXTENSION_COMMON = {
   GIF: "GIF",
   TIFF: "TIFF",
   TIF: "TIF",
-  RTF: "RTF"
+  RTF: "RTF",
+  CSV: "CSV"
 };
