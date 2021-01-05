@@ -20,7 +20,7 @@
   ],
   "dependencies": {
     "autoprefixer": "7.1.6",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "classnames": "^2.2.6",
     "core-js": "^3.3.6",
     "file-loader": "2.0.0",
